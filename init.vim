@@ -40,6 +40,7 @@ endif
 "set mouse=a		" Enable mouse usage (all modes)
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
+let g:netrw_liststyle = 3
 syntax on 
 set smartindent
 set tabstop=4
@@ -52,7 +53,7 @@ set cursorline
 "set mouse=a
 set noswapfile
 
-set colorcolumn=100
+set colorcolumn=102
 "highlight ColorColumn ctermbg=0 guibg=lightgrey 
 highlight normal guibg=none
 
@@ -80,6 +81,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
+Plug 'wfxr/minimap.vim'
 
 call plug#end()
 """"""""
@@ -101,6 +103,12 @@ set hidden
 let g:racer_cmd = "/home/user/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 let g:racer_insert_paren = 1
+"""
+"""
+"Minimap
+let g:minimap_width = 8
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
 """
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
@@ -251,8 +259,5 @@ inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(
 inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 8)\<cr>" : "\<Left>"
 
 "User commands
-:command -nargs=* PyRun :!python3.8 %:t <args>
+:command -nargs=* PyRun :!python3 %:t <args>
 :command -nargs=* CargoRun :!cargo run <args>
-"abbrevations
-abbr pnp print("
-abbr pnr prinln!("
