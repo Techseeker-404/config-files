@@ -47,6 +47,7 @@ endif
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
+let g:netrw_banner = 0
 let g:netrw_winsize = 25
 syntax on 
 set smartindent
@@ -56,7 +57,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-set  colorcolumn=110
+set  colorcolumn=100
 highlight ColorColumn ctermbg=0 guibg=lightgrey 
 call plug#begin('~/.vim/plugged')
 
@@ -65,8 +66,9 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree'
+Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
 colorscheme gruvbox
