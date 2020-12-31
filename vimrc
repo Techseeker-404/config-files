@@ -66,10 +66,19 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
-"Plug 'Valloric/YouCompleteMe'
-Plug 'mbbill/undotree'
+"Plug 'Valloric/YouCompleteMe'    "As we are using Kite Autocompletion these two
+"Plug 'mbbill/undotree'           "not any longer needed
 Plug 'vim-scripts/AutoComplPop'
 call plug#end()
+"kite Intelligent Auto-completion
+
+" All the languages Kite supports
+let g:kite_supported_languages = ['*']
+"tab key completion
+let g:kite_tab_complete=1
+"for auto complete
+"set completeopt+=noselect
+
 
 colorscheme gruvbox
 set background=dark
