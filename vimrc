@@ -56,7 +56,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-
+set number
 set  colorcolumn=100
 highlight ColorColumn ctermbg=0 guibg=lightgrey 
 call plug#begin('~/.vim/plugged')
@@ -67,8 +67,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
 "Plug 'Valloric/YouCompleteMe'    "As we are using Kite Autocompletion these two
-"Plug 'mbbill/undotree'           "not any longer needed
-Plug 'vim-scripts/AutoComplPop'
+Plug 'mbbill/undotree'           "not any longer needed
+"Plug 'vim-scripts/AutoComplPop'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 "kite Intelligent Auto-completion
 
@@ -79,7 +82,16 @@ let g:kite_tab_complete=1
 "for auto complete
 "set completeopt+=noselect
 
-
+"Airline theme
+let g:airline_theme='tomorrow'
+let g:airline_solarized_bg='dark'
+"To set powerline fonts of airline 
+let g:airline_powerline_fonts = 1
+"To show talines of airline theme buffer
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_section_y = '%{strftime("%c")}'
+let g:airline#extensions#tabline#formatter = 'default'
+"""
 colorscheme gruvbox
 set background=dark
 
