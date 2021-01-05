@@ -94,7 +94,9 @@ let g:airline#extensions#tabline#formatter = 'default'
 """
 colorscheme gruvbox
 set background=dark
-
+"Leader and its mappings
+noremap <leader>w :w<CR>
+noremap <leader>] <C-w>
 "set background=dark
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
