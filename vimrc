@@ -8,8 +8,6 @@
 runtime! debian.vim
 
 " Vim will load $VIMRUNTIME/defaults.vim if the user does not have a vimrc.
-" This happens after /etc/vim/vimrc(.local) are loaded, so it will override
-" any settings in these files.
 " If you don't want that to happen, uncomment the below line to prevent
 " defaults.vim from being loaded.
 " let g:skip_defaults_vim = 1
@@ -19,7 +17,7 @@ runtime! debian.vim
 " options, so any other options should be set AFTER setting 'compatible'.
 "set compatible
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
+
 " line enables syntax highlighting by default.
 if has("syntax")
   syntax on
@@ -51,13 +49,13 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 syntax on 
 set smartindent
-set noswapfile
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set number
-set  colorcolumn=100
+
+set colorcolumn=100
 highlight ColorColumn ctermbg=0 guibg=lightgrey 
 call plug#begin('~/.vim/plugged')
 
@@ -74,14 +72,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 "kite Intelligent Auto-completion
-
 " All the languages Kite supports
 let g:kite_supported_languages = ['*']
 "tab key completion
 let g:kite_tab_complete=1
 "for auto complete
 "set completeopt+=noselect
-
 "Airline theme
 let g:airline_theme='tomorrow'
 let g:airline_solarized_bg='dark'
@@ -97,7 +93,6 @@ set background=dark
 "Leader and its mappings
 noremap <leader>w :w<CR>
 noremap <leader>] <C-w>
-"set background=dark
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
