@@ -70,6 +70,8 @@ Plug 'mbbill/undotree'           "not any longer needed
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
+"Plug 'vim-syntastic/syntastic'
+Plug 'ivanov/vim-ipython'
 call plug#end()
 "kite Intelligent Auto-completion
 " All the languages Kite supports
@@ -93,6 +95,8 @@ set background=dark
 "Leader and its mappings
 noremap <leader>w :w<CR>
 noremap <leader>] <C-w>
+noremap <leader>l :Lex<CR>
+noremap <leader>c :SyntasticToggleMode<CR>
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
