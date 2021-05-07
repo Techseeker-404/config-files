@@ -54,6 +54,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set number
+"set noswapfile
 
 set colorcolumn=100
 "highlight ColorColumn ctermbg=0 guibg=lightgrey 
@@ -79,6 +80,10 @@ Plug 'rust-lang/rls'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasiser/vim-code-dark'
+Plug 'dracula/vim',{'as':'dracula'}
+
 call plug#end()
 
 "kite Intelligent Auto-completion
@@ -89,7 +94,7 @@ let g:kite_tab_complete=1
 "for auto complete
 "set completeopt+=noselect
 "Airline theme
-let g:airline_theme='minimalist'
+let g:airline_theme= 'base16_grayscale'
 let g:airline_solarized_bg='dark'
 "To set powerline fonts of airline 
 let g:airline_powerline_fonts = 1
@@ -105,6 +110,8 @@ let g:racer_experimental_completer = 1
 let g:racer_insert_paren = 1
 """
 colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+"colorscheme codedark
 set background=dark
 "Leader and its mappings
 noremap <leader>w :w<CR>
