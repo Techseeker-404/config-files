@@ -48,7 +48,7 @@ set shiftwidth=4
 set expandtab
 set number
 set mouse=a
-"set noswapfile
+set noswapfile
 
 set colorcolumn=100
 "highlight ColorColumn ctermbg=0 guibg=lightgrey 
@@ -67,7 +67,7 @@ Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-"Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'ivanov/vim-ipython'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rls'
@@ -77,6 +77,7 @@ Plug 'airblade/vim-rooter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasiser/vim-code-dark'
 Plug 'dracula/vim',{'as':'dracula'}
+Plug 'crusoexia/vim-monokai'
 
 call plug#end()
 
@@ -103,16 +104,24 @@ let g:racer_cmd = "/home/user/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 let g:racer_insert_paren = 1
 """
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 "colorscheme codedark
+set termguicolors
 set background=dark
 "Leader and its mappings
 noremap <leader>w :w<CR>
 noremap <leader>] <C-w>
 noremap <leader>l :Lex<CR>
+noremap <leader>bn :bnext<CR>  
+noremap <leader>f :set relativenumber<CR>  
+noremap <leader>g :set norelativenumber<CR>  
 noremap <leader>c :SyntasticToggleMode<CR>
 noremap <leader>zx :hi Normal guifg=#44cc44 guibg=NONE ctermbg=NONE<CR>
+noremap <leader>zc :hi Normal ctermbg=16 guibg=NONE<CR>
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
@@ -204,6 +213,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references
+""""
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
 """"
 let g:coc_global_extensions = [
   \ 'coc-snippets',
