@@ -47,7 +47,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set number
-set mouse=a
+set relativenumber
+"set mouse=a
 set noswapfile
 
 set colorcolumn=100
@@ -60,9 +61,8 @@ Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
-Plug 'lyuts/vim-rtags'
-"Plug 'Valloric/YouCompleteMe'    
-Plug 'mbbill/undotree'           "not any longer needed
+Plug 'lyuts/vim-rtags' 
+Plug 'mbbill/undotree'           
 Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline-themes'
@@ -80,14 +80,10 @@ Plug 'dracula/vim',{'as':'dracula'}
 Plug 'crusoexia/vim-monokai'
 
 call plug#end()
-
-"kite Intelligent Auto-completion
-" All the languages Kite supports
-"let g:kite_supported_languages = ['*']
-"tab key completion
-"let g:kite_tab_complete=1
-"for auto complete
-"set completeopt+=noselect
+""""""""
+""Syntastic Mode
+""By defaul syntastic is disabled to enable it press leader'c'
+let g:syntastic_mode_map = {'mode':'passive','active_filetypes':[],'passive_filetypes': []}
 "Airline theme
 let g:airline_theme= 'base16_grayscale'
 let g:airline_solarized_bg='dark'
