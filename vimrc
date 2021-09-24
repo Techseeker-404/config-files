@@ -48,6 +48,7 @@ set shiftwidth=4
 set expandtab
 set number
 set relativenumber
+set cursorline
 "set mouse=a
 set noswapfile
 
@@ -78,11 +79,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tomasiser/vim-code-dark'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'crusoexia/vim-monokai'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 """"""""
 ""Syntastic Mode
-""By defaul syntastic is disabled to enable it press leader'c'
+""
 let g:syntastic_mode_map = {'mode':'passive','active_filetypes':[],'passive_filetypes': []}
 "Airline theme
 let g:airline_theme= 'base16_grayscale'
@@ -102,8 +104,10 @@ let g:racer_insert_paren = 1
 """
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
+let g:onedark_termcolors = 256
+let g:onedark_terminal_italics = 1
 
-colorscheme gruvbox
+colorscheme gruvbox 
 let g:gruvbox_contrast_dark = 'hard'
 "colorscheme codedark
 set termguicolors
@@ -208,7 +212,7 @@ endfunction
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references
+nmap <silent> gr <Plug>(coc-references)
 """"
 
 " Remap for rename current word
@@ -221,6 +225,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-python', 
   \ ]
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

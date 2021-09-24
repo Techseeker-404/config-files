@@ -71,6 +71,8 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 #export LC_ALL=en_US.UTF-8
 alias tmux='tmux -u'
 alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 # bindkey -s 'tmux' 'tmux -u \n'
 # bindkey -s 'v' 'git status --short^M'
 # Would you like to use another custom folder than $ZSH/custom?
