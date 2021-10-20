@@ -117,6 +117,9 @@ noremap <leader>w :w<CR>
 noremap <leader>] <C-w>
 noremap <leader>l :Lex<CR>
 noremap <leader>bn :bnext<CR>  
+noremap <leader>bf :Buffers<CR>  
+noremap <leader>fd :Files<CR>  
+noremap <leader>fz :FZF<CR>  
 noremap <leader>f :set relativenumber<CR>  
 noremap <leader>g :set norelativenumber<CR>  
 noremap <leader>c :SyntasticToggleMode<CR>
