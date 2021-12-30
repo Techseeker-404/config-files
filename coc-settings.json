@@ -1,5 +1,7 @@
 
 {
-    "clangd.path": "/home/anand/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd"
+    "clangd.path": "/home/anand/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
+    "rust.target":"thumbv7em-none-eabihf",
+    "rust.all_targets": false
 }
 

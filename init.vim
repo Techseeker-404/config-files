@@ -253,3 +253,6 @@ inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(
 "User commands
 :command -nargs=* PyRun :!python3.8 %:t <args>
 :command -nargs=* CargoRun :!cargo run <args>
+"abbrevations
+abbr pnp print("
+abbr pnr prinln!("
