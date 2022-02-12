@@ -1,0 +1,14 @@
+#!/bin/bash
+ 
+read -p "Enter (y(Y)/n(N)): " myvar
+ 
+if [ $myvar == "y" ] || [ $myvar == "Y" ] 
+then
+    read -p "Enter video name to be saved:" video_name
+    ffmpeg -video_size 2560x1600 -framerate 30 -f x11grab -i :1 -c:v libx264 -qp 0 -preset ultrafast $video_name
+elif [ $myvar == "n" ] || [ $myvar == "N" ] 
+then
+    echo "NO recording this time"
+else 
+    echo "Not a valid prompt"
+fi
