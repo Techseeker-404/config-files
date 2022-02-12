@@ -1,0 +1,7 @@
+for c++:
+    arm-none-eabi-g++ --specs=nosys.specs -mthumb -mcpu=cortex-m3 -march=armv7-m hello.cpp -o hello
+for c:
+    arm-none-eabi-gcc --specs=rdimon.specs -lc -lm -lrdimon hello.c -o hello
+
+added library:
+    sudo apt-get install libncurses5
