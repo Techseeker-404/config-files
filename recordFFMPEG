@@ -1,6 +1,6 @@
 #!/bin/bash
  
-read -p "Enter (y(Y)/n(N)): " myvar
+read -p "Enter (y(Y) to continue /n(N)) to abort: " myvar
  
 if [ $myvar == "y" ] || [ $myvar == "Y" ] 
 then
