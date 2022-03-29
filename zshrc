@@ -1,3 +1,4 @@
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -74,6 +75,9 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias cl='clear'
+alias lx='exa -bghHlS'
+alias lxa='exa -abghHlS'
+alias lxat='exa -abghHlST'
 # bindkey -s 'tmux' 'tmux -u \n'
 # bindkey -s 'v' 'git status --short^M'
 # Would you like to use another custom folder than $ZSH/custom?
@@ -121,4 +125,4 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #export PATH=$PATH:/media/anand/polyglot/RustLang/rust_box/SWAP/swap/
-
+#export PATH=$PATH:"/opt/arm-cross-compile/bin"
