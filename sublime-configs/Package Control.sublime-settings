@@ -1,0 +1,14 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"LSP",
+		"LSP-rust-analyzer",
+		"Package Control",
+		"Rust Enhanced",
+		"Terminus",
+	],
+}
