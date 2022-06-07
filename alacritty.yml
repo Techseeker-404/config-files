@@ -18,9 +18,10 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 112
-    lines: 25
+    columns: 106
+    lines: 23
 
+  opacity: 0.90
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
@@ -38,6 +39,7 @@ window:
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
+  dynamic_title: false
 
   # Window decorations
   #
@@ -110,7 +112,7 @@ font:
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-    family: Inconsolata for Powerline
+    family: Monaco
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -121,7 +123,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Inconsolata for Powerline
+    family: Monaco
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -139,7 +141,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Inconsolata for Powerline
+    family: Monaco 
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -157,7 +159,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Inconsolata for Powerline
+    family: Monaco
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -170,7 +172,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 12.7
+  size: 10.485
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -628,8 +630,8 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-window.opacity: 0.96
-# background_opacity: 0.80
+  #opacity: 0.90
+#background_opacity: 0.80
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 # When set to `true`, selected text will be copied to the primary clipboard.
