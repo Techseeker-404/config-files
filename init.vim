@@ -13,7 +13,7 @@ runtime! debian.vim
 
 " line enables syntax highlighting by default.
 if has("syntax")
-  syntax on
+    syntax on
 endif
 
 " If using a dark background within the editing area and syntax highlighting
@@ -53,6 +53,7 @@ set cursorline
 "set mouse=a
 set noswapfile
 
+"set exrc secure
 set colorcolumn=102
 "highlight ColorColumn ctermbg=0 guibg=lightgrey 
 highlight normal guibg=none
@@ -82,6 +83,8 @@ Plug 'dracula/vim',{'as':'dracula'}
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
 Plug 'wfxr/minimap.vim'
+Plug 'dhruvasagar/vim-dotoo'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 """"""""
@@ -107,19 +110,31 @@ let g:racer_insert_paren = 1
 """
 "Minimap
 let g:minimap_width = 8
-let g:minimap_auto_start = 1
+let g:minimap_auto_start = 0
 let g:minimap_auto_start_win_enter = 1
+"""
+"""
+let vim_markdown_preview_github=1
 """
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 let g:onedark_termcolors = 256
 let g:onedark_terminal_italics = 1
+"let g:onedark_color_overrides = {
+            "\ "background": {"gui": "#282C34", "cterm": "235", "cterm16": "0" },
+            "\ "purple": { "gui": "#C678DF", "cterm": "170", "cterm16": "5" }
+"\}
 
 colorscheme gruvbox 
 let g:gruvbox_contrast_dark = 'hard'
 "colorscheme codedark
 set termguicolors
 set background=dark
+"""
+"Uncheck and Check.
+nnoremap uchk $a<Space>-<Space><ESC>a<C-v>u2716<Esc>
+nnoremap chk $a<Space>-<Space><ESC>a<C-v>u2714<Esc>
+"""
 "Leader and its mappings
 noremap <leader>w :w<CR>
 noremap <leader>] <C-w>
@@ -135,28 +150,28 @@ noremap <leader>zx :hi Normal guifg=#44cc44 guibg=NONE ctermbg=NONE<CR>
 noremap <leader>zc :hi Normal ctermbg=16 guibg=NONE<CR>
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+    source /etc/vim/vimrc.local
 endif
 """""" If Kite is installed this could help to operate between completion """"""
 """"""""setups""""""
 function! s:disable_completion_plugins()
-  " coc.nvim
-  if exists('g:did_coc_loaded')
-    if !exists('b:coc_suggest_disable') || !b:coc_suggest_disable
-      let b:coc_suggest_disable = 1
-      " Alternatively:
-      " autocmd BufEnter *.python :CocDisable
-      " autocmd BufLeave *.python :CocEnable
-      call kite#utils#warn("disabling coc.nvim's completions in this buffer")
+    " coc.nvim
+    if exists('g:did_coc_loaded')
+        if !exists('b:coc_suggest_disable') || !b:coc_suggest_disable
+            let b:coc_suggest_disable = 1
+            " Alternatively:
+            " autocmd BufEnter *.python :CocDisable
+            " autocmd BufLeave *.python :CocEnable
+            call kite#utils#warn("disabling coc.nvim's completions in this buffer")
+        endif
     endif
-  endif
-  " YouCompleteMe
-  if exists('g:loaded_youcompleteme')
-    if !exists('g:ycm_filetype_blacklist.python') || !g:ycm_filetype_blacklist.python
-      let g:ycm_filetype_blacklist.python = 1
-      call kite#utils#warn("disabling YouCompleteMe's completions for python files")
+    " YouCompleteMe
+    if exists('g:loaded_youcompleteme')
+        if !exists('g:ycm_filetype_blacklist.python') || !g:ycm_filetype_blacklist.python
+            let g:ycm_filetype_blacklist.python = 1
+            call kite#utils#warn("disabling YouCompleteMe's completions for python files")
+        endif
     endif
-  endif
 endfunction
 
 "Braces auto completion."
@@ -177,7 +192,7 @@ let s:pairs={
             \'„': '“',
             \'“': '”',
             \'‘': '’',
-        \}
+            \}
 call map(copy(s:pairs), 'extend(s:pairs, {v:val : v:key}, "keep")')
 function! InsertPair(left, ...)
     let rlist=reverse(map(split(a:left, '\zs'), 'get(s:pairs, v:val, v:val)'))
@@ -194,10 +209,10 @@ function! InsertPair(left, ...)
     let moves=repeat("\<Left>", len(split(right, '\zs')))
     return left.right.moves
 endfunction
- noremap! <expr> ,f   InsertPair('{')
- noremap! <expr> ,h   InsertPair('[')
- noremap! <expr> ,s   InsertPair('(')
- noremap! <expr> ,u   InsertPair('<')
+noremap! <expr> ,f   InsertPair('{')
+noremap! <expr> ,h   InsertPair('[')
+noremap! <expr> ,s   InsertPair('(')
+noremap! <expr> ,u   InsertPair('<')
 
 
 " prettier command for coc
@@ -208,14 +223,14 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 """"
 
@@ -230,23 +245,23 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
 """"
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-clangd',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ 'coc-python', 
-  \ ]
+            \ 'coc-snippets',
+            \ 'coc-clangd',
+            \ 'coc-tsserver',
+            \ 'coc-eslint', 
+            \ 'coc-prettier', 
+            \ 'coc-json', 
+            \ 'coc-python', 
+            \ ]
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 """"Documentation scrolling in COC""""
